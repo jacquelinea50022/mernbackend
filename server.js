@@ -18,10 +18,17 @@ app.use(records);
 // });
 console.log("Okay");
 dbj.connectToDb().then((res)=>{
+  // console.log(res);
+  let db = dbj.getDB();
+  // console.log(db.collection("blogs"))
   app.listen(PORT, () => {
     console.log(`Connected to port: ${PORT}`);
   });
-});
+}).catch(
+  (err)=> {
+    console.log(err);
+  }
+);
 
   // app.listen(PORT, () => {
   //   console.log(`Connected to port: ${PORT}`);

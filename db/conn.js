@@ -13,11 +13,14 @@ let _db;
 // creatign export with function connectToDb and getDB in order to send this information to other folders
 module.exports = {
     connectToDb: async (callback) => {
-      
+
         // Connect the client to the server	(optional starting in v4.7)
-        _db = await client.connect();
+        await client.connect();
+
+        // console.log("jdfklajlk")
+
         // Send a ping to confirm a successful connection
-        await client.db("mernstack").command({ ping: 1 });
+        _db = await client.db("mernstack");
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
       
     },
